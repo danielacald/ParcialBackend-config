@@ -1,25 +1,16 @@
 server:
-  port: 8082
+  port: 8081
 
 spring:
   application:
-    name: movie-service
-  datasource:
-    driverClassName: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3370/movie-dev
-    username: usr-movie
-    password: pwd-movie
-  jpa:
-    hibernate.ddl-auto: update
-    generate-ddl: true
-    show-sql: true
+    name: catalog-service
 
 eureka:
   client:
     register-with-eureka: true
     fetch-registry: true
     registry-fetch-interval-seconds: 5
-    healthcheck:
+    health-check:
       enabled: true
     service-url:
       default-zone: http://localhost:8761/eureka
