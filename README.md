@@ -10,7 +10,7 @@ Este repositorio contiene las configuraciones en formato `.yml` para varios micr
 
 
 ```
-config-service/
+config-server/
 │
 ├── catalog-service.yml
 │
