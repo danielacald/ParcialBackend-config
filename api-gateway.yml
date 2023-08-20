@@ -11,13 +11,13 @@ spring:
           enabled: true
       routes:
         - id: catalogService
-          uri: lb://catalog-service/api/v1
+          uri: lb://catalog-service
           predicates:
-            - Path=/catalog/**
+            - Path=/api/v1/catalog/**
         - id: movieService
-          uri: lb://movie-service/api/v1
+          uri: lb://movie-service
           predicates:
-            - Path=/movies/**
+            - Path=/api/v1/movies/**
 
 eureka:
   client:
