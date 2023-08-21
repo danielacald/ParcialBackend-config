@@ -1,6 +1,6 @@
-﻿# Repositorio de Configuraciones para Examen Parcial - Especialización Backend II
+﻿# Repositorio de Configuraciones para Examen Parcial - Especialización Backend I
 
-Este repositorio contiene las configuraciones en formato `.yml` para varios microservicios como parte del examen parcial de la materia Especialización Backend II. 
+Este repositorio contiene las configuraciones en formato `.yml` para varios microservicios como parte del examen parcial de la materia Especialización Backend I. 
 
 ## Equipo
 - Alberto Gómez Juan 
