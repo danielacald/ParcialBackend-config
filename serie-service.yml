@@ -12,6 +12,8 @@ spring:
       database: test
       port: 27017
 
+  zipkin:
+    base-url: http://localhost:9411
 eureka:
   client:
     register-with-eureka: true
