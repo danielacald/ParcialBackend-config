@@ -28,3 +28,32 @@ eureka:
     prefer-ip-address: true
     lease-renewal-interval-in-seconds: 5
     lease-expiration-duration-in-seconds: 10
+
+info:
+  app:
+    name: Catálogo de Series y Películas
+    description: Servicio de catálogo de películas y series de televisión
+    version: 1.0.0
+    authors:
+      - Alberto Gómez Juan
+      - Daniela Calderón Roa
+    contact: contacto@ejemplo.com
+    version: 1.0.0
+  component:
+    name: Movie Service
+    description: Movie Service
+    version: 1.0.0
+  build:
+    artifact: @project.artifactId@
+    name: @project.name@
+    version: @project.version@
+    time: @timestamp@
+    java.version: @java.version@
+    spring-boot.version: @spring-boot.version@
+
+management:
+  endpoints:
+    web:
+      base-path: /actuator
+    exposure:
+      include: health
