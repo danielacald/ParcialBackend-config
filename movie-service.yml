@@ -9,6 +9,7 @@ spring:
     url: jdbc:mysql://localhost:3370/movie-dev
     username: usr-movie
     password: pwd-movie
+    validation-query: SELECT 1
   jpa:
     hibernate.ddl-auto: update
     generate-ddl: true
@@ -31,29 +32,20 @@ eureka:
 
 info:
   app:
-    name: Catálogo de Series y Películas
-    description: Servicio de catálogo de películas y series de televisión
-    version: 1.0.0
+    name: "Catálogo de Series y Películas"
+    description: "Servicio de catálogo de películas y series de televisión"
     authors:
-      - Alberto Gómez Juan
-      - Daniela Calderón Roa
-    contact: contacto@ejemplo.com
+      - "Alberto Gómez Juan"
+      - "Daniela Calderón Roa"
     version: 1.0.0
   component:
-    name: Movie Service
-    description: Movie Service
+    name: "Movie Service"
+    description: "Movie Service"
     version: 1.0.0
-  build:
-    artifact: @project.artifactId@
-    name: @project.name@
-    version: @project.version@
-    time: @timestamp@
-    java.version: @java.version@
-    spring-boot.version: @spring-boot.version@
 
 management:
   endpoints:
     web:
       base-path: /actuator
     exposure:
-      include: health
+      include: "health,info"
