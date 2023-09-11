@@ -17,7 +17,7 @@ spring:
 
   zipkin:
     base-url: http://localhost:9411
-    
+
 eureka:
   client:
     register-with-eureka: true
@@ -49,6 +49,5 @@ info:
 management:
   endpoints:
     web:
-      base-path: /actuator
-    exposure:
-      include: "health,info"
+      exposure:
+        include: "health,info"
