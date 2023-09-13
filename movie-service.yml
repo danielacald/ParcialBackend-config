@@ -27,7 +27,7 @@ spring:
 
 queue:
   movie:
-    name: TestQueue
+    name: movieQueue
 
 message: movie up
 
