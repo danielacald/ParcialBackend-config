@@ -4,6 +4,12 @@ server:
 spring:
   application:
     name: catalog-service
+    
+  cloud:
+    circuitbreaker:
+      resiliencer4j:
+        enabled: true
+
   mongodb:
     embedded:
       version: 4.0.2
