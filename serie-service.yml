@@ -12,8 +12,20 @@ spring:
       database: test
       port: 27017
 
+  rabbitmq:
+    username: guest
+    password: guest
+    host: localhost
+    port: 5672
+
   zipkin:
     base-url: http://localhost:9411
+    enabled: true
+
+queue:
+  serie:
+    name: serieQueue
+
 eureka:
   client:
     register-with-eureka: true
