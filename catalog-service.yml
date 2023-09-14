@@ -95,9 +95,8 @@ resilience4j:
         waitDurationInOpenState: 15000
         permittedNumberOfCallsInHalfOpenState: 3
         automaticTransitionFromOpenToHalfOpenEnabled: true
-
-# Configuración del mecanismo de reintentos
-resilience4j:
+        
+  # Configuración del mecanismo de reintentos
   retry:
     instances:
       subscription:
