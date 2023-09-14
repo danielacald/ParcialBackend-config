@@ -4,6 +4,8 @@ server:
 spring:
   application:
     name: serie-service
+
+  # Configuración de la base de datos
   mongodb:
     embedded:
       version: 4.0.2
@@ -12,20 +14,24 @@ spring:
       database: test
       port: 27017
 
+  # Configuracion de RabbitMQ para el envío de mensajes
   rabbitmq:
     username: guest
     password: guest
     host: localhost
     port: 5672
 
+  # Configuración de Zipkin
   zipkin:
     base-url: http://localhost:9411
     enabled: true
 
+# Configuración de las colas
 queue:
   serie:
     name: serieQueue
 
+# Configuración de Eureka
 eureka:
   client:
     register-with-eureka: true
@@ -40,3 +46,30 @@ eureka:
     prefer-ip-address: true
     lease-renewal-interval-in-seconds: 5
     lease-expiration-duration-in-seconds: 10
+
+# Configuración de actuator
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "info, health"
+  endpoint:
+    health:
+      show-details: always
+  info:
+    env:
+      enabled: true
+
+info:
+  app:
+    name: "Examen Final - Especialización Backend I"
+    description: "Servicio de catálogo de películas y series de televisión"
+    authors: {
+      author1: "Alberto Gómez Juan",
+      author2: "Daniela Calderón Roa"
+    }
+    version: 1.0.0
+  component:
+    name: "Serie Service"
+    description: "Microservicio de series"
+    version: 1.0.0

@@ -4,6 +4,8 @@ server:
 spring:
   application:
     name: movie-service
+
+  # Configuración de la base de datos
   datasource:
     driverClassName: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3370/movie-dev
@@ -15,22 +17,24 @@ spring:
     generate-ddl: true
     show-sql: true
   
+  # Configuración de RabbitMQ para el envío de mensajes
   rabbitmq:
     username: guest
     password: guest
     host: localhost
     port: 5672
     
+  # Configuración de Zipkin
   zipkin:
     base-url: http://localhost:9411
     enabled: true
 
+# Configuración de las colas
 queue:
   movie:
     name: movieQueue
 
-message: movie up
-
+# Configuración de Eureka
 eureka:
   client:
     register-with-eureka: true
@@ -46,21 +50,29 @@ eureka:
     lease-renewal-interval-in-seconds: 5
     lease-expiration-duration-in-seconds: 10
 
-info:
-  app:
-    name: "Catálogo de Series y Películas"
-    description: "Servicio de catálogo de películas y series de televisión"
-    authors:
-      - "Alberto Gómez Juan"
-      - "Daniela Calderón Roa"
-    version: 1.0.0
-  component:
-    name: "Movie Service"
-    description: "Movie Service"
-    version: 1.0.0
-
+# Configuración de actuator
 management:
   endpoints:
     web:
       exposure:
-        include: info
+        include: "info, health"
+  endpoint:
+    health:
+      show-details: always
+  info:
+    env:
+      enabled: true
+
+info:
+  app:
+    name: "Examen Final - Especialización Backend I"
+    description: "Servicio de catálogo de películas y series de televisión"
+    authors: {
+      author1: "Alberto Gómez Juan",
+      author2: "Daniela Calderón Roa"
+    }
+    version: 1.0.0
+  component:
+    name: "Movie Service"
+    description: "Microservicio de películas"
+    version: 1.0.0

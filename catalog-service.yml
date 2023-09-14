@@ -10,6 +10,7 @@ spring:
       resiliencer4j:
         enabled: true
 
+  # Configuración de la base de datos
   mongodb:
     embedded:
       version: 4.0.2
@@ -18,23 +19,26 @@ spring:
       database: test
       port: 27018
 
+  # Configuracion de RabbitMQ para el envío de mensajes
   rabbitmq:
     username: guest
     password: guest
     host: localhost
     port: 5672
 
+  # Configuración de Zipkin
   zipkin:
     base-url: http://localhost:9411
     enabled: true
 
+# Configuración de las colas
 queue:
   serie:
     name: serieQueue
   movie:
     name: movieQueue
 
-
+# Configuración de Eureka
 eureka:
   client:
     register-with-eureka: true
@@ -49,3 +53,55 @@ eureka:
     prefer-ip-address: true
     lease-renewal-interval-in-seconds: 5
     lease-expiration-duration-in-seconds: 10
+
+
+# Configuración de actuator
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+  info:
+    env:
+      enabled: true
+
+info:
+  app:
+    name: "Examen Final - Especialización Backend I"
+    description: "Servicio de catálogo de películas y series de televisión"
+    authors: {
+      author1: "Alberto Gómez Juan",
+      author2: "Daniela Calderón Roa"
+    }
+    version: 1.0.0
+  component:
+    name: "Catalog Service"
+    description: "Catálogo de Series y Películas"
+    version: 1.0.0
+
+# Configuración del circuit breaker
+resilience4j:
+  circuitbreaker:
+    instances:
+      subscription:
+        allowHealthIndicatorToFail: false
+        registerHealthIndicator: true
+        slidingWindowType: COUNT_BASED
+        slidingWindowSize: 5
+        failureRateThreshold: 50
+        waitDurationInOpenState: 15000
+        permittedNumberOfCallsInHalfOpenState: 3
+        automaticTransitionFromOpenToHalfOpenEnabled: true
+
+# Configuración del mecanismo de reintentos
+resilience4j:
+  retry:
+    instances:
+      subscription:
+        maxAttempts: 3
+        waitDuration: 3000
+        retryExceptions:
+          - feign.FeignException$InternalServerError

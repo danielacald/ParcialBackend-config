@@ -5,6 +5,7 @@ spring:
   application:
     name: eureka-server
 
+# Configuración de Eureka
 eureka:
   client:
     register-with-eureka: false
